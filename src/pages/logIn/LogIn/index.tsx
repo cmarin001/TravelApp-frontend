@@ -1,6 +1,5 @@
 import {
   Div,
-  Div2,
   Div3,
   Div4,
   Div5,
