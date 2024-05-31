@@ -13,6 +13,7 @@ const CustomCard = styled(IonCard)`
   color: white;
   height: -webkit-fill-available;
   width: -webkit-fill-available;
+  margin: 0;
 `;
 
 const CustomImg = styled.img`
