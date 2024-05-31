@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import {
-  IonItem,
-  IonCardContent,
-  IonText,
   IonButton,
-  IonInput,
-  IonIcon,
+  IonCardContent,
   IonCol,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonText,
 } from "@ionic/react";
 
 const StyledCustomCardContent = styled(IonCardContent)`
@@ -25,6 +25,45 @@ const StyledContainerTitle = styled.div`
   color: #706b6b;
   font-weight: 600;
   padding: 0 33px;
+`;
+
+const StyledDivider = styled.div`
+  border-radius: 4px;
+  background-color: rgba(189, 187, 187, 1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 1px;
+`;
+
+const StyledIcon = styled(IonIcon)`
+  margin-right: 16px;
+`;
+
+const StyledIndividualSocialContainer = styled.div`
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background-color: #cdeaff;
+  display: flex;
+  padding: 12px 20px;
+`;
+
+const StyledInput = styled(IonInput)`
+  color: #000;
+  ::placeholder {
+    color: #000;
+  }
+`;
+
+const StyledItem = styled(IonItem)`
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  --inner-padding-end: 0;
+  --inner-padding-start: 0;
+  --background: #ddecfe;
 `;
 
 const StyledIonTextLarge = styled(IonText)`
@@ -48,91 +87,52 @@ const StyledIonTextSmall = styled(IonText)`
   }
 `;
 
-const StyledDivider = styled.div`
-  border-radius: 4px;
-  background-color: rgba(189, 187, 187, 1);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 1px;
-`;
-
-const StyledIndividualSocialContainer = styled.div`
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  background-color: #cdeaff;
-  display: flex;
-  padding: 12px 20px;
-`;
-
-const Img3 = styled.img`
-  aspect-ratio: 1;
-  object-fit: auto;
-  object-position: center;
-  width: 48px;
-`;
-
-const Img4 = styled.img`
-  aspect-ratio: 1;
-  object-fit: auto;
-  object-position: center;
-  width: 48px;
-`;
-
-const Img5 = styled.img`
-  aspect-ratio: 1;
-  object-fit: auto;
-  object-position: center;
-  width: 48px;
-`;
-
-const CustomButton = styled(IonButton)`
+const StyledCustomButton = styled(IonButton)`
   --background: #3880ff;
   --border-radius: 8px;
   width: 100%;
 `;
 
-const StyledItem = styled(IonItem)`
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 16px;
-  --inner-padding-end: 0;
-  --inner-padding-start: 0;
-  --background: #ddecfe;
-`;
-
-const StyledInput = styled(IonInput)`
-  color: #000;
-  ::placeholder {
-    color: #000;
-  }
-`;
-
-const StyledIcon = styled(IonIcon)`
-  margin-right: 16px;
-`;
-
-const CenteredCol = styled(IonCol)`
+const StyledCenteredCol = styled(IonCol)`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
+const StyledImg3 = styled.img`
+  aspect-ratio: 1;
+  object-fit: auto;
+  object-position: center;
+  width: 48px;
+`;
+
+const StyledImg4 = styled.img`
+  aspect-ratio: 1;
+  object-fit: auto;
+  object-position: center;
+  width: 48px;
+`;
+
+const StyledImg5 = styled.img`
+  aspect-ratio: 1;
+  object-fit: auto;
+  object-position: center;
+  width: 48px;
+`;
+
 export {
-  Img3,
-  Img4,
-  Img5,
-  StyledCustomCardContent,
+  StyledCenteredCol,
   StyledContainerTitle,
+  StyledCustomButton,
+  StyledCustomCardContent,
+  StyledDivider,
+  StyledIcon,
+  StyledImg3,
+  StyledImg4,
+  StyledImg5,
+  StyledIndividualSocialContainer,
+  StyledInput,
   StyledIonTextLarge,
   StyledIonTextSmall,
-  CustomButton,
-  StyledInput,
   StyledItem,
-  StyledIcon,
-  CenteredCol,
-  StyledIndividualSocialContainer,
-  StyledDivider,
 };

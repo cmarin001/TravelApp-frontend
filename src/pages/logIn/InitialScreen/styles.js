@@ -1,7 +1,13 @@
 import styled from "styled-components";
-import { IonCard, IonCardContent, IonText, IonButton } from "@ionic/react";
+import { IonButton, IonCard, IonCardContent, IonText } from "@ionic/react";
 
-const CustomCard = styled(IonCard)`
+const StyledCustomButton = styled(IonButton)`
+  --background: #3880ff;
+  --border-radius: 8px;
+  padding: 0.5rem 2rem;
+`;
+
+const StyledCustomCard = styled(IonCard)`
   position: relative;
   background: url("https://cdn.builder.io/api/v1/image/assets/TEMP/c474b2120dd126477f5d78505bc1e3e6024a874eb1aebc65f724e213d69fc849?apiKey=44c5498a738c4755b9e86254cb967fb1&width=1200")
     no-repeat center center;
@@ -16,12 +22,6 @@ const CustomCard = styled(IonCard)`
   margin: 0;
 `;
 
-const CustomImg = styled.img`
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-`;
-
 const StyledCustomCardContent = styled(IonCardContent)`
   display: flex;
   flex-direction: column;
@@ -30,17 +30,17 @@ const StyledCustomCardContent = styled(IonCardContent)`
   width: -webkit-fill-available;
 `;
 
-const Title = styled(IonText)`
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
+const StyledCustomImg = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 `;
 
-const Subtitle = styled(IonText)`
+const StyledGridContainer = styled(IonButton)`
+  display: grid;
+`;
+
+const StyledSubtitle = styled(IonText)`
   font-size: 1rem;
   margin-bottom: 1rem;
 
@@ -49,14 +49,14 @@ const Subtitle = styled(IonText)`
   }
 `;
 
-const CustomButton = styled(IonButton)`
-  --background: #3880ff;
-  --border-radius: 8px;
-  padding: 0.5rem 2rem;
-`;
+const StyledTitle = styled(IonText)`
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 
-const GridContainer = styled(IonButton)`
-  display: grid;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const StyledColumnContainer = styled.div`
@@ -68,12 +68,12 @@ const StyledColumnContainer = styled.div`
 `;
 
 export {
-  CustomCard,
-  CustomImg,
-  GridContainer,
-  Title,
-  Subtitle,
-  StyledCustomCardContent,
   StyledColumnContainer,
-  CustomButton,
+  StyledCustomButton,
+  StyledCustomCard,
+  StyledCustomCardContent,
+  StyledCustomImg,
+  StyledGridContainer,
+  StyledSubtitle,
+  StyledTitle,
 };
