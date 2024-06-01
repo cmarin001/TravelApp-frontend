@@ -39,6 +39,7 @@ import "./theme/variables.css";
 
 /* Global styles */
 import "./theme/global.css";
+import { Main } from "./pages/landing/Main";
 
 setupIonicReact();
 
@@ -47,6 +48,7 @@ const App: React.FC = () => (
     <IonReactRouter>
       <Route exact path="/initial" component={InitialScreen} />
       <Route exact path="/logIn" component={LogIn} />
+      <Route exact path="/landing" component={Main} />
       <Redirect exact from="/" to="/initial" />
     </IonReactRouter>
   </IonApp>

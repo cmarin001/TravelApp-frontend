@@ -10,12 +10,17 @@ import {
 } from "@ionic/react";
 
 const StyledCustomCardContent = styled(IonCardContent)`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: -webkit-fill-available;
-  width: -webkit-fill-available;
-  margin: 0;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+gap: 64px;
+
+
+@media (min-width: 768px) {
+  flex-wrap: wrap; 
+  gap: 32px; 
+  justify-content: space-around;
+}
 `;
 
 const StyledContainerTitle = styled.div`
@@ -25,13 +30,14 @@ const StyledContainerTitle = styled.div`
   color: #706b6b;
   font-weight: 600;
   padding: 0 33px;
+  gap: 1rem;
 `;
 
 const StyledDivider = styled.div`
   border-radius: 4px;
   background-color: rgba(189, 187, 187, 1);
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   height: 1px;
 `;
 
@@ -60,7 +66,7 @@ const StyledItem = styled(IonItem)`
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 16px;
+  font-size: 24px;
   --inner-padding-end: 0;
   --inner-padding-start: 0;
   --background: #ddecfe;

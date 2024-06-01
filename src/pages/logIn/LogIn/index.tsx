@@ -21,7 +21,7 @@ import { useHistory } from "react-router-dom";
 function LogIn() {
   const history = useHistory();
   const handleGetStartNow = () => {
-    history.push("/logIn");
+    history.push("/landing");
   };
 
   return (
@@ -34,7 +34,7 @@ function LogIn() {
           <h1>Log In to your account</h1>
         </StyledIonTextSmall>
       </StyledContainerTitle>
-      <IonGrid fixed={true}>
+      <IonGrid >
         <IonRow>
           <IonCol>
             <StyledItem lines="none">
