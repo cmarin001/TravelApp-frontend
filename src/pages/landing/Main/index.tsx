@@ -10,11 +10,11 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { ellipse, square, triangle } from "ionicons/icons";
-import Tab1 from "../../Tab1";
-import Tab2 from "../../Tab2";
-import Tab3 from "../../Tab3";
-
+import { homeOutline, personOutline, heartOutline, ticketOutline } from "ionicons/icons";
+import Tab1 from "../Home/Tab1";
+import Tab2 from "../User/Tab2";
+import Tab3 from "../Favorites/Tab3";
+import Tab4 from "../Bookings/Tab4";
 
 function Main() {
   return (
@@ -31,22 +31,25 @@ function Main() {
           <Route path="/tab3">
             <Tab3 />
           </Route>
-          <Route exact path="/">
+          <Route path="/tab4">
+            <Tab4 />
+          </Route>
+          <Route exact path="/landing">
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonIcon aria-hidden="true" icon={homeOutline} />
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonIcon aria-hidden="true" icon={personOutline} />
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonIcon aria-hidden="true" icon={heartOutline} />
+          </IonTabButton>
+          <IonTabButton tab="tab4" href="/tab4">
+            <IonIcon aria-hidden="true" icon={ticketOutline} />
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
