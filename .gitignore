@@ -10,6 +10,8 @@
 
 # production
 /dist
+node_modules
+.env
 
 # misc
 .DS_Store

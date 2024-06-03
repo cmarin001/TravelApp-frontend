@@ -69,7 +69,11 @@ const App: React.FC = () => {
         </Route>
         <Route exact path="/verify-email" component={VerifyEmail} />
         <Route exact path="/landing" component={Main} />
-        <Redirect exact from="/" to="/initial" />
+        {user ? (
+          <Redirect exact from="/" to="/landing" />
+        ) : (
+          <Redirect exact from="/" to="/initial" />
+        )}
       </IonReactRouter>
     </IonApp>
   );

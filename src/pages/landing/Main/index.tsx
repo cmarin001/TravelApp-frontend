@@ -24,7 +24,7 @@ import { LogIn } from "../../logIn/LogIn";
 import { useTokenValidation } from "../../../auth/auth";
 import { LogInProps } from "../../../types/types";
 
-function Main(props: LogInProps)  { 
+function Main(props: LogInProps)  {
   const { setUser } = props;
   const [user, setUserState] = useState<User | null>(null);
   const auth = getAuth();
