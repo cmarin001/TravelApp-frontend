@@ -18,7 +18,9 @@
     "test.e2e": "cypress run",
     "test.unit": "vitest",
     "lint": "eslint",
-    "test": "npm run build && npm run test.unit -- --watch=false && npm i --no-save concurrently && ./node_modules/.bin/concurrently \"npm run dev\" \"npm run test.e2e\" --kill-others --success first"
+    "test": "npm run build && npm run test.unit -- --watch=false && npm i --no-save concurrently && ./node_modules/.bin/concurrently \"npm run dev\" \"npm run test.e2e\" --kill-others --success first",
+    "auto": "auto",
+    "changelog": "npm run auto changelog"
   },
   "dependencies": {
     "@ionic/react": "^8.0.0",
@@ -50,6 +52,8 @@
     "terser": "^5.4.0",
     "typescript": "^5.1.6",
     "vite": "^5.0.0",
-    "vitest": "^0.34.6"
+    "vitest": "^0.34.6",
+    "auto": "^11.0.4",
+    "@auto-it/npm": "^11.1.2"
   }
 }
