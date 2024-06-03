@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
@@ -7,6 +8,11 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 import { InitialScreen } from "./pages/logIn/InitialScreen";
 import { LogIn } from "./pages/logIn/LogIn";
+import { Main } from "./pages/landing/Main";
+import { SignUp } from "./pages/logIn/SignUp";
+import { VerifyEmail } from "./pages/logIn/VerificationStatus";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -23,13 +29,6 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
 /* import '@ionic/react/css/palettes/dark.always.css'; */
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import "@ionic/react/css/palettes/dark.system.css";
@@ -39,19 +38,41 @@ import "./theme/variables.css";
 
 /* Global styles */
 import "./theme/global.css";
-import { Main } from "./pages/landing/Main";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <Route exact path="/initial" component={InitialScreen} />
-      <Route exact path="/logIn" component={LogIn} />
-      <Route exact path="/landing" component={Main} />
-      <Redirect exact from="/" to="/initial" />
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  const [user, setUser] = useState<User | null>(null);
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <Route exact path="/initial" component={InitialScreen} />
+        <Route exact path="/logIn">
+          <LogIn setUser={setUser} />
+        </Route>
+        <Route exact path="/signup">
+          <SignUp setUser={setUser} />
+        </Route>
+        <Route exact path="/verify-email" component={VerifyEmail} />
+        <Route exact path="/landing" component={Main} />
+        <Redirect exact from="/" to="/initial" />
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;

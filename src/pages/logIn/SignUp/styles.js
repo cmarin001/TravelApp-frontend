@@ -13,8 +13,8 @@ const StyledCustomCardContent = styled(IonCardContent)`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-gap: 32px;
-scroll: auto;
+gap: 16px;
+
 
 @media (min-width: 768px) {
   flex-wrap: wrap; 
