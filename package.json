@@ -2,7 +2,7 @@
   "name": "travelApp",
   "private": true,
   "version": "0.0.1",
-  "type": "react-vite",
+  "type": "module",
   "integrations": {},
   "description": "An Ionic project",
   "baseref": "main",
