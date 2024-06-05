@@ -10,24 +10,25 @@ import {
 } from "@ionic/react";
 
 const StyledCustomCardContent = styled(IonCardContent)`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
 
-
-@media (min-width: 768px) {
-  flex-wrap: wrap; 
-  gap: 32px; 
-  justify-content: space-around;
-}
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: space-around;
+  }
 `;
 
 const StyledContainerTitle = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: #706b6b;
+  color: var(--text-color);
   font-weight: 600;
   padding: 0 33px;
   gap: 1rem;
@@ -35,7 +36,7 @@ const StyledContainerTitle = styled.div`
 
 const StyledDivider = styled.div`
   border-radius: 4px;
-  background-color: rgba(189, 187, 187, 1);
+  background-color: var(--divider-color);
   margin-top: 10px;
   margin-bottom: 10px;
   height: 1px;
@@ -43,21 +44,22 @@ const StyledDivider = styled.div`
 
 const StyledIcon = styled(IonIcon)`
   margin-right: 16px;
+  color: var(--text-color);
 `;
 
 const StyledIndividualSocialContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  background-color: #cdeaff;
+  background-color: var(--secondary-color);
   display: flex;
   padding: 12px 20px;
 `;
 
 const StyledInput = styled(IonInput)`
-  color: #000;
+  color: var(--text-color);
   ::placeholder {
-    color: #000;
+    color: var(--text-color);
   }
 `;
 
@@ -69,11 +71,12 @@ const StyledItem = styled(IonItem)`
   font-size: 24px;
   --inner-padding-end: 0;
   --inner-padding-start: 0;
-  --background: #ddecfe;
+  --background: var(--item-background-color);
+  color: var(--text-color);
 `;
 
 const StyledIonTextLarge = styled(IonText)`
-  color: medium;
+  color: var(--text-color);
   text-align: center;
   margin-bottom: 16px;
 
@@ -84,7 +87,7 @@ const StyledIonTextLarge = styled(IonText)`
 `;
 
 const StyledIonTextSmall = styled(IonText)`
-  color: medium;
+  color: var(--text-color);
   text-align: center;
   margin-bottom: 16px;
 
@@ -94,9 +97,10 @@ const StyledIonTextSmall = styled(IonText)`
 `;
 
 const StyledCustomButton = styled(IonButton)`
-  --background: #3880ff;
+  --background: var(--primary-color);
   --border-radius: 8px;
   width: 100%;
+  color: var(--text-color);
 `;
 
 const StyledCenteredCol = styled(IonCol)`

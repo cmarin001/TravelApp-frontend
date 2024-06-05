@@ -1,37 +1,46 @@
-import styled from "styled-components";
-import {
-  IonText,
-} from "@ionic/react";
+import styled from 'styled-components';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { IonImg, IonLabel } from "@ionic/react";
 
-const StyledContainerTitle = styled.div`
+const StyledSwiper = styled(Swiper)`
+  width: 100%;
+`;
+
+const StyledSwiperSlide = styled(SwiperSlide)`
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  color: #706b6b;
-  font-weight: 600;
-  padding: 0 33px;
-  gap: 1rem;
+  align-items: center;
 `;
 
-const StyledIonTextLarge = styled(IonText)`
-  color: medium;
-  text-align: center;
-  margin-bottom: 16px;
+const StyledLocationItem = styled.div`
+  width: 90%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-color: var(--item-background-color);
+`;
 
-  h1 {
-    font-size: 40px;
-    font-weight: bold;
+const StyledIonImg = styled(IonImg)`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+`;
+
+const StyledLocationDetails = styled(IonLabel)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px;
+  text-align: center;
+
+  h2 {
+    margin: 0;
+    font-size: 1rem;
   }
 `;
 
-const StyledIonTextSmall = styled(IonText)`
-  color: medium;
-  text-align: center;
-  margin-bottom: 16px;
-
-  h1 {
-    font-size: 24px;
-  }
-`;
-
-export { StyledContainerTitle, StyledIonTextLarge, StyledIonTextSmall };
+export { StyledSwiper, StyledSwiperSlide, StyledLocationItem, StyledIonImg, StyledLocationDetails };

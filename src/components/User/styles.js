@@ -1,20 +1,18 @@
 import styled from "styled-components";
-import {
-  IonText,
-} from "@ionic/react";
+import { IonText } from "@ionic/react";
 
 const StyledContainerTitle = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: #706b6b;
+  color: var(--text-color);
   font-weight: 600;
   padding: 0 33px;
   gap: 1rem;
 `;
 
 const StyledIonTextLarge = styled(IonText)`
-  color: medium;
+  color: var(--text-color);
   text-align: center;
   margin-bottom: 16px;
 
@@ -25,7 +23,7 @@ const StyledIonTextLarge = styled(IonText)`
 `;
 
 const StyledIonTextSmall = styled(IonText)`
-  color: medium;
+  color: var(--text-color);
   text-align: center;
   margin-bottom: 16px;
 
