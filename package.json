@@ -23,8 +23,8 @@
     "changelog": "npm run auto changelog"
   },
   "dependencies": {
-    "@ionic/react": "^8.0.0",
-    "@ionic/react-router": "^8.0.0",
+    "@ionic/react": "^8.2.1",
+    "@ionic/react-router": "^8.2.1",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
     "firebase": "^10.12.2",
@@ -33,9 +33,11 @@
     "react-dom": "^18.2.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
+    "@auto-it/npm": "^11.1.2",
     "@testing-library/dom": ">=7.21.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -44,6 +46,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-legacy": "^5.0.0",
     "@vitejs/plugin-react": "^4.0.1",
+    "auto": "^11.0.4",
     "concurrently": "^7.6.0",
     "cypress": "^13.5.0",
     "eslint": "^8.35.0",
@@ -52,8 +55,6 @@
     "terser": "^5.4.0",
     "typescript": "^5.1.6",
     "vite": "^5.0.0",
-    "vitest": "^0.34.6",
-    "auto": "^11.0.4",
-    "@auto-it/npm": "^11.1.2"
+    "vitest": "^0.34.6"
   }
 }

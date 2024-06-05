@@ -6,10 +6,10 @@ import { HomeProps } from "../../../types/types";
 
 import { Link } from "react-router-dom";
 import { StyledIcon, StyledInput, StyledItem, StyledCenteredCol, StyledIonTextSmall } from "./styles";
-import { LocationList } from "../../places/LocationList";
-import { RecommendedLocations } from "../../places/RecommendedLocations";
+import { LocationList } from "../LocationList";
+import { RecommendedLocations } from "../RecommendedLocations";
 
-function Home(props: HomeProps) {
+function ExploreLocation(props: HomeProps) {
   const { user } = props;
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -78,4 +78,4 @@ function Home(props: HomeProps) {
   );
 }
 
-export { Home };
+export { ExploreLocation };
