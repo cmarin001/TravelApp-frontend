@@ -1,6 +1,7 @@
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { StyledSwiper, StyledSwiperSlide, StyledLocationItem, StyledIonImg, StyledLocationDetails } from './styles';
+import { Card } from '../Card';
 
 interface UserProps {
   locations: any[];
@@ -22,17 +23,13 @@ const slideOpts = {
   spaceBetween: 16
 };
 
-function Carousel({ locations }: UserProps) {
+function Carousel(props: UserProps) {
+  const { locations } = props;
   return (
     <StyledSwiper {...slideOpts}>
       {locations.map((location) => (
         <StyledSwiperSlide key={location.place_id}>
-          <StyledLocationItem>
-            <StyledIonImg src={location.image_url || 'https://via.placeholder.com/150'} alt={location.display_name} />
-            <StyledLocationDetails>
-              <h2>{simplifyLocationName(location.display_name)}</h2>
-            </StyledLocationDetails>
-          </StyledLocationItem>
+           <Card location={location} />
         </StyledSwiperSlide>
       ))}
     </StyledSwiper>
