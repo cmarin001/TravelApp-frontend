@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { IonSpinner, IonText, IonPage, IonGrid, IonRow, IonCol } from "@ionic/react";
 import { fetchLocations } from "../../../services/locationService";
 import { StyledCard, StyledCardImage, StyledCardLabel } from "./styles";
+import { Card } from "../../../components/Card";
 
 interface RecommendedLocationsProps {
   locationQuery?: string;
@@ -39,12 +40,7 @@ function RecommendedLocations(props: RecommendedLocationsProps) {
           <IonRow>
             {locations.map((location) => (
               <IonCol size="6" key={location.place_id}>
-                <StyledCard>
-                  <StyledCardImage src={location.image_url || 'https://via.placeholder.com/150'} alt={location.display_name} />
-                  <StyledCardLabel>
-                    <h2>{location.display_name}</h2>
-                  </StyledCardLabel>
-                </StyledCard>
+                <Card location={location} />
               </IonCol>
             ))}
           </IonRow>
