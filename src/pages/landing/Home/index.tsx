@@ -69,9 +69,9 @@ function Home(props: HomeProps) {
               </StyledIonTextSmall>
             </StyledCenteredCol>
           </IonRow>
-          <IonRow style={{ height: "30vh" }}>
+          <IonRow style={{ height: "31vh" }}>
             <IonCol size="12">
-              <LocationList locationQuery={searchQuery || "New York"} />
+              <LocationList />
             </IonCol>
           </IonRow>
         </IonGrid>
@@ -84,7 +84,7 @@ function Home(props: HomeProps) {
         </IonRow>
         <IonRow style={{ height: "30vh" }}>
           <IonCol size="12">
-            <RecommendedLocations locationQuery={"Germany"} />
+            <RecommendedLocations  />
           </IonCol>
         </IonRow>
       </IonGrid>

@@ -14,7 +14,7 @@ import {
   StyledIonTextLarge,
   StyledIonTextSmall,
   StyledItem,
-} from "./styles.js";
+} from "./styles";
 import {
   IonCol,
   IonGrid,
