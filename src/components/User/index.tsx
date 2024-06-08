@@ -1,9 +1,8 @@
-import React from "react";
 import {
   StyledContainerTitle,
   StyledIonTextLarge,
   StyledIonTextSmall,
-} from "./styles.js";
+} from "./styles";
 
 interface UserProps {
   name: string;
