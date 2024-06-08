@@ -1,6 +1,6 @@
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { StyledSwiper, StyledSwiperSlide, StyledLocationItem, StyledIonImg, StyledLocationDetails } from './styles';
+import { StyledSwiper, StyledSwiperSlide} from './styles';
 import { Card } from '../Card';
 
 interface UserProps {

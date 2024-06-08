@@ -1,7 +1,7 @@
-import { IonImg } from "@ionic/react";
+import { IonGrid } from "@ionic/react";
 import styled from "styled-components";
 
-const StyledLocationCard = styled.div`
+const StyledLocationCard = styled.div<{ $backgroundurl: string }>`
   width: 90%;
   border-radius: 16px;
   overflow: hidden;
@@ -9,13 +9,11 @@ const StyledLocationCard = styled.div`
   position: relative;
   background-color: var(--item-background-color);
   margin: 8px;
-`;
-
-const StyledIonImg = styled(IonImg)`
-  width: 100%;
+  background-image: url(${(props: { $backgroundurl: string; }) => props.$backgroundurl});
   height: 12rem;
   object-fit: cover;
 `;
+
 
 const StyledRating = styled.div`
   color: #f8d675;
@@ -63,9 +61,14 @@ const StyledFavorite = styled.div`
   }
 `;
 
+const StyledGrid = styled(IonGrid)`
+  top: 169px;
+  position: relative;
+`;
+
 export {
   StyledLocationCard,
-  StyledIonImg,
+  StyledGrid,
   StyledDetails,
   StyledRating,
   StyledFavorite,

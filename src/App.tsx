@@ -38,6 +38,9 @@ import "./theme/variables.css";
 
 /* Global styles */
 import "./theme/global.css";
+import { LocationProvider } from "./context/locationProvider";
+import { Home } from "./pages/landing/Home";
+import { ExploreLocation } from "./pages/places/ExploreLocation";
 
 setupIonicReact();
 
@@ -60,20 +63,26 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <Route exact path="/initial" component={InitialScreen} />
-        <Route exact path="/logIn">
-          <LogIn setUser={setUser} />
-        </Route>
-        <Route exact path="/signup">
-          <SignUp setUser={setUser} />
-        </Route>
-        <Route exact path="/verify-email" component={VerifyEmail} />
-        <Route exact path="/landing" component={Main} />
-        {user ? (
-          <Redirect exact from="/" to="/landing" />
-        ) : (
-          <Redirect exact from="/" to="/initial" />
-        )}
+        <LocationProvider>
+          <IonRouterOutlet>
+            <Route exact path="/initial" component={InitialScreen} />
+            <Route exact path="/logIn">
+              <LogIn setUser={setUser} />
+            </Route>
+            <Route exact path="/signup">
+              <SignUp setUser={setUser} />
+            </Route>
+            <Route exact path="/verify-email" component={VerifyEmail} />
+            <Route exact path="/landing" component={Main} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/explore" component={ExploreLocation} />
+            {user ? (
+              <Redirect exact from="/" to="/landing" />
+            ) : (
+              <Redirect exact from="/" to="/initial" />
+            )}
+          </IonRouterOutlet>
+        </LocationProvider>
       </IonReactRouter>
     </IonApp>
   );

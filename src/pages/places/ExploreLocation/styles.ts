@@ -38,4 +38,19 @@ import { IonIcon, IonInput, IonItem, IonRow, IonText, IonCol } from "@ionic/reac
   align-items: center;
 `;
 
-export { StyledInput, StyledItem, StyledIcon, StyledIonTextSmall, StyledCenteredCol }
+ const TabsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+`;
+
+ const TabButton = styled.div<{ active: boolean }>`
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: ${(props: { active: any; }) => (props.active ? '#e0f7ff' : 'transparent')};
+  color: ${(props: { active: any; }) => (props.active ? '#007aff' : '#666')};
+  font-weight: ${(props: { active: any; }) => (props.active ? 'bold' : 'normal')};
+`;
+
+export { StyledInput, StyledItem, StyledIcon, StyledIonTextSmall, StyledCenteredCol, TabsContainer , TabButton}
