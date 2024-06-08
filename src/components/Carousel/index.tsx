@@ -1,6 +1,6 @@
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { StyledSwiper, StyledSwiperSlide} from './styles';
+import { StyledSwiper, StyledSwiperSlide } from './styles';
 import { Card } from '../Card';
 
 interface UserProps {
@@ -25,11 +25,12 @@ const slideOpts = {
 
 function Carousel(props: UserProps) {
   const { locations } = props;
+
   return (
     <StyledSwiper {...slideOpts}>
       {locations.map((location) => (
-        <StyledSwiperSlide key={location.place_id}>
-           <Card location={location} />
+        <StyledSwiperSlide key={location.place_id} >
+          <Card location={location} />
         </StyledSwiperSlide>
       ))}
     </StyledSwiper>

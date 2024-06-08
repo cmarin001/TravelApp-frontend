@@ -23,6 +23,8 @@ import { getAuth, User, onAuthStateChanged } from "firebase/auth";
 import { LogIn } from "../../logIn/LogIn";
 import { useTokenValidation } from "../../../auth/auth";
 import { LogInProps } from "../../../types/types";
+import { ExploreLocation } from "../../places/ExploreLocation";
+
 
 function Main(props: LogInProps)  {
   const { setUser } = props;
@@ -65,6 +67,7 @@ function Main(props: LogInProps)  {
             <Route path="/tab4">
               <Tab4 />
             </Route>
+            <Route path="/explore/:locationName" component={ExploreLocation} />
             <Route exact path="/landing">
               <Redirect to="/home" />
             </Route>

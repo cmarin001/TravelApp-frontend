@@ -14,9 +14,9 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function Card(props: any) {
   const { location } = props;
-  const { setLocation } = useLocation();
+  const { setLocation, setCountry, setCity } = useLocation();
   const history = useHistory();
-  
+
   const simplifyLocationName = (name: string) => {
     const parts = name.split(",");
     if (parts.length >= 3) {
@@ -26,13 +26,19 @@ function Card(props: any) {
   };
 
   const handleClick = () => {
+    console.log("Card clicked", location);
     setLocation(location);
-    history.push('/explore');
+    setCountry(location.country);
+    setCity(location.display_name);
+    history.push({
+      pathname: "/explore",
+      state: { location },
+    });
   };
 
   return (
     <div onClick={handleClick}>
-      <StyledLocationCard $backgroundurl={API_URL + location.image_url}>
+      <StyledLocationCard $backgroundurl={`${API_URL}${location.image_url}`}>
         <StyledGrid>
           <IonRow>
             <IonCol>
@@ -47,7 +53,6 @@ function Card(props: any) {
                 <StyledRating>
                   <IonIcon icon={star} />
                 </StyledRating>
-
                 <span>{location.rating || "4.1"}</span>
               </StyledDetails>
             </IonCol>
