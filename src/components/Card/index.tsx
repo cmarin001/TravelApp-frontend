@@ -6,6 +6,7 @@ import {
   StyledDetails,
   StyledFavorite,
   StyledGrid,
+  StyledCardContainer,
 } from "./styles";
 import { IonCol, IonIcon, IonRow } from "@ionic/react";
 import { useLocation } from "../../context/locationProvider";
@@ -37,7 +38,7 @@ function Card(props: any) {
   };
 
   return (
-    <div onClick={handleClick}>
+    <StyledCardContainer onClick={handleClick}>
       <StyledLocationCard $backgroundurl={`${API_URL}${location.image_url}`}>
         <StyledGrid>
           <IonRow>
@@ -64,7 +65,7 @@ function Card(props: any) {
           </IonRow>
         </StyledGrid>
       </StyledLocationCard>
-    </div>
+    </StyledCardContainer>
   );
 }
 

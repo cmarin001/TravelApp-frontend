@@ -9,11 +9,11 @@ const StyledLocationCard = styled.div<{ $backgroundurl: string }>`
   position: relative;
   background-color: var(--item-background-color);
   margin: 8px;
-  background-image: url(${(props: { $backgroundurl: string; }) => props.$backgroundurl});
+  background-image: url(${(props: { $backgroundurl: string }) =>
+    props.$backgroundurl});
   height: 12rem;
   object-fit: cover;
 `;
-
 
 const StyledRating = styled.div`
   color: #f8d675;
@@ -57,7 +57,7 @@ const StyledFavorite = styled.div`
   height: 32px;
   width: 32px;
   ion-icon {
-    color: #EC5655;
+    color: #ec5655;
   }
 `;
 
@@ -66,7 +66,12 @@ const StyledGrid = styled(IonGrid)`
   position: relative;
 `;
 
+const StyledCardContainer = styled.div`
+  width: 100%;
+`;
+
 export {
+  StyledCardContainer,
   StyledLocationCard,
   StyledGrid,
   StyledDetails,
