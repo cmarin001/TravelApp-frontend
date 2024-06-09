@@ -31,7 +31,7 @@ function Card(props: any) {
     setCountry(location.country);
     setCity(location.display_name);
     history.push({
-      pathname: "/explore",
+      pathname: `/explore/${location.place_id}`,
       state: { location },
     });
   };
