@@ -12,6 +12,7 @@
 /dist
 node_modules
 .env
+package-lock.json
 
 # misc
 .DS_Store
