@@ -44,7 +44,7 @@ const App: React.FC = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
-      if (user) {
+      if (user && history) {
         history.push("/landing");
       }
     });
@@ -55,7 +55,7 @@ const App: React.FC = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
+  
   return (
     <IonApp>
       <IonReactRouter>
