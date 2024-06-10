@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Swiper as SwiperBase, SwiperSlide as SwiperSlideBase } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const StyledSwiper = styled(SwiperBase)`
   width: 100%;

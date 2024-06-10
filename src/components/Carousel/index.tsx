@@ -1,11 +1,7 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-import styled from 'styled-components';
-import { Card } from '../Card';
+import { StyledCardContainer, StyledSwiperSlide, StyledSwiper } from "./styles";
+import { Card } from "../Card";
 
 interface UserProps {
   locations: any[];
@@ -19,29 +15,11 @@ const slideOpts = {
   spaceBetween: 16,
 };
 
-const StyledSwiper = styled(Swiper)`
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledSwiperSlide = styled(SwiperSlide)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledCardContainer = styled.div`
-  width: -webkit-fill-available;
-  width: -moz-available;
-`;
-
 function Carousel(props: UserProps) {
   const { locations } = props;
 
   return (
-    <StyledSwiper {...slideOpts} modules={[Pagination]} pagination={{ clickable: true }}>
+    <StyledSwiper {...slideOpts}>
       {locations.map((location) => (
         <StyledSwiperSlide key={location.place_id}>
           <StyledCardContainer>
