@@ -19,8 +19,9 @@ const StyledCustomCardContent = styled(IonCardContent)`
 
   @media (min-width: 768px) {
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 12px;
     justify-content: space-around;
+    overflow: scroll;
   }
 `;
 
