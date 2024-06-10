@@ -1,20 +1,4 @@
 import styled from "styled-components";
-import { Swiper as SwiperBase, SwiperSlide as SwiperSlideBase } from "swiper/react";
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-const StyledSwiper = styled(SwiperBase)`
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledSwiperSlide = styled(SwiperSlideBase)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`;
 
 const StyledLocationItem = styled.div`
   width: 90%;
@@ -54,10 +38,8 @@ const StyledCardContainer = styled.div`
 `;
 
 export {
-  StyledSwiper,
-  StyledSwiperSlide,
-  StyledCardContainer,
   StyledLocationItem,
   StyledIonImg,
   StyledLocationDetails,
+  StyledCardContainer,
 };
