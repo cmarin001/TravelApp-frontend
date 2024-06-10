@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperBase, SwiperSlide as SwiperSlideBase } from "swiper/react";
 
-const StyledSwiper = styled(Swiper)`
+const StyledSwiper = styled(SwiperBase)`
   width: 100%;
   height: 100%;
 `;
 
-const StyledSwiperSlide = styled(SwiperSlide)`
+const StyledSwiperSlide = styled(SwiperSlideBase)`
   display: flex;
   justify-content: center;
   align-items: center;
