@@ -47,10 +47,8 @@ const StyledLocationDetails = styled.div`
 `;
 
 const StyledCardContainer = styled.div`
-  & > div {
-    width: -webkit-fill-available;
-    width: -moz-available;
-  }
+  width: -webkit-fill-available;
+  width: -moz-available;
 `;
 
 export {
