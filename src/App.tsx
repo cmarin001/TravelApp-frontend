@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import { LocationProvider } from "./context/locationProvider";
 import { InitialScreen } from "./pages/logIn/InitialScreen";
 import { LogIn } from "./pages/logIn/LogIn";
 import { Main } from "./pages/landing/Main";
 import { SignUp } from "./pages/logIn/SignUp";
 import { VerifyEmail } from "./pages/logIn/VerificationStatus";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-import { LocationProvider } from "./context/locationProvider";
 import { ExploreLocation } from "./pages/places/ExploreLocation";
 
 /* Core CSS required for Ionic components to work properly */
@@ -24,9 +24,6 @@ import "@ionic/react/css/text-alignment.css";
 import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import "@ionic/react/css/palettes/dark.system.css";
 /* Theme variables */
 import "./theme/variables.css";
 /* Global styles */
@@ -44,7 +41,7 @@ const App: React.FC = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
-      if (user && history) {
+      if ( loading === false && !user) {
         history.push("/landing");
       }
     });
@@ -55,7 +52,7 @@ const App: React.FC = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <IonApp>
       <IonReactRouter>
@@ -63,17 +60,11 @@ const App: React.FC = () => {
           <IonRouterOutlet>
             <Switch>
               <Route path="/initial" component={InitialScreen} exact />
-              <Route path="/logIn">
-                <LogIn setUser={setUser} />
-              </Route>
-              <Route path="/signup">
-                <SignUp setUser={setUser} />
-              </Route>
+              <Route path="/login" render={() => <LogIn setUser={setUser} />} />
+              <Route path="/signup" render={() => <SignUp setUser={setUser} />} />
               <Route path="/verify-email" component={VerifyEmail} exact />
-              <Route path="/landing">
-                <Main setUser={setUser} />
-              </Route>
-              <Route path="/explore/:locationName" component={ExploreLocation} />
+              <Route path="/landing" render={() => <Main setUser={setUser} />} />
+              <Route path="/explore/:locationName" component={ExploreLocation} exact />
               <Route exact path="/">
                 {user ? <Redirect to="/landing" /> : <Redirect to="/initial" />}
               </Route>

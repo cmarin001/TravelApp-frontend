@@ -1,7 +1,16 @@
 import { useState, useRef, useEffect } from "react";
-import { IonContent, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonPage, IonText } from "@ionic/react";
+import {
+  IonContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonItem,
+  IonLabel,
+  IonPage,
+  IonText,
+} from "@ionic/react";
 import { searchOutline } from "ionicons/icons";
-import { Link, useHistory, useLocation as useRouterLocation } from "react-router-dom";
+import { useHistory, useLocation as useRouterLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import {
@@ -15,7 +24,6 @@ import {
   StyledContainerTitle,
   StyledIonTextLarge,
 } from "./styles";
-import { LocationList } from "../LocationList";
 import { RecommendedLocations } from "../RecommendedLocations";
 
 import SwiperCore from "swiper";
@@ -34,12 +42,12 @@ interface LocationState {
   } | null;
 }
 
-function ExploreLocation(props: HomeProps) {
+const ExploreLocation: React.FC<HomeProps> = (props) => {
   const { user } = props;
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [activeTab, setActiveTab] = useState<string>("location");
   const history = useHistory();
-  const swiperRef = useRef<SwiperCore>();
+  const swiperRef = useRef<SwiperCore | null>(null);
   const routerLocation = useRouterLocation<LocationState>();
   const { location } = routerLocation.state || { location: null };
 
@@ -87,12 +95,18 @@ function ExploreLocation(props: HomeProps) {
   };
 
   if (!location) {
-    return <IonPage><IonText color="danger">No location selected</IonText></IonPage>;
+    return (
+      <IonPage>
+        <IonContent fullscreen>
+          <IonText color="danger">No location selected</IonText>
+        </IonContent>
+      </IonPage>
+    );
   }
 
   return (
     <IonPage>
-      <IonContent fullscreen>
+      <IonContent>
         <IonGrid>
           <IonRow>
             <IonCol>
@@ -154,36 +168,15 @@ function ExploreLocation(props: HomeProps) {
         >
           <SwiperSlide>
             <IonGrid>
-              {/* <IonRow>
-                <IonCol>
-                  <IonItem lines="none">
-                    <IonLabel>Popular</IonLabel>
-                  </IonItem>
-                </IonCol>
-                <StyledCenteredCol>
-                  <StyledIonTextSmall color="medium">
-                    <h5>
-                      <Link to="/forgotPassword">See all</Link>
-                    </h5>
-                  </StyledIonTextSmall>
-                </StyledCenteredCol>
-              </IonRow> */}
               <IonRow style={{ height: "54vh" }}>
                 <IonCol size="12">
-                   <RecommendedLocations initialCountry={location.country} initialCity={location.display_name} />
+                  <RecommendedLocations initialCountry={location.country} initialCity={location.display_name} />
                 </IonCol>
               </IonRow>
             </IonGrid>
           </SwiperSlide>
           <SwiperSlide>
             <IonGrid>
-              {/* <IonRow>
-                <IonCol>
-                  <IonItem lines="none">
-                    <IonLabel>Recommended</IonLabel>
-                  </IonItem>
-                </IonCol>
-              </IonRow> */}
               <IonRow style={{ height: "54vh" }}>
                 <IonCol size="12">
                   <RecommendedLocations initialCountry={location.country} initialCity={location.display_name} />
@@ -195,6 +188,6 @@ function ExploreLocation(props: HomeProps) {
       </IonContent>
     </IonPage>
   );
-}
+};
 
 export { ExploreLocation };

@@ -7,6 +7,7 @@ import {
   IonPage,
   IonItem,
   IonLabel,
+  IonCardContent,
 } from "@ionic/react";
 import { User } from "../../../components/User";
 import { searchOutline } from "ionicons/icons";
@@ -33,28 +34,29 @@ function Home(props: HomeProps) {
   };
 
   return (
-    <IonContent fullscreen>
-      <IonGrid>
-        <IonRow>
-          <IonCol size="12">
-            <User name={user?.displayName ?? "Guest"} />
-          </IonCol>
-        </IonRow>
-        <IonRow>
-          <IonCol size="12">
-            <StyledItem lines="none">
-              <StyledIcon icon={searchOutline} />
-              <StyledInput
-                placeholder="Search destinations..."
-                value={searchQuery}
-                onIonChange={(e: CustomEvent<any>) =>
-                  handleSearchChange(e as CustomEvent)
-                }
-              />
-            </StyledItem>
-          </IonCol>
-        </IonRow>
-        {/* <IonGrid>
+    <IonPage>
+      <IonContent>
+        <IonGrid>
+          <IonRow>
+            <IonCol size="12">
+              <User name={user?.displayName ?? "Guest"} />
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol size="12">
+              <StyledItem lines="none">
+                <StyledIcon icon={searchOutline} />
+                <StyledInput
+                  placeholder="Search destinations..."
+                  value={searchQuery}
+                  onIonChange={(e: CustomEvent<any>) =>
+                    handleSearchChange(e as CustomEvent)
+                  }
+                />
+              </StyledItem>
+            </IonCol>
+          </IonRow>
+          {/* <IonGrid>
           <IonRow>
             <IonCol>
               <IonItem lines="none">
@@ -75,20 +77,21 @@ function Home(props: HomeProps) {
             </IonCol>
           </IonRow>
         </IonGrid> */}
-        <IonRow>
-          <IonCol>
-            <IonItem lines="none">
-              <IonLabel>Recommended</IonLabel>
-            </IonItem>
-          </IonCol>
-        </IonRow>
-        <IonRow style={{ height: "46vh" }}>
-          <IonCol size="12">
-            <RecommendedLocations  />
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-    </IonContent>
+          <IonRow>
+            <IonCol>
+              <IonItem lines="none">
+                <IonLabel>Recommended</IonLabel>
+              </IonItem>
+            </IonCol>
+          </IonRow>
+          <IonRow style={{ height: "46vh" }}>
+            <IonCol size="12">
+              <RecommendedLocations />
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+      </IonContent>
+    </IonPage>
   );
 }
 

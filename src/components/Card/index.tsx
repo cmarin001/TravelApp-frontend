@@ -27,7 +27,6 @@ function Card(props: any) {
   };
 
   const handleClick = () => {
-    console.log("Card clicked", location);
     setLocation(location);
     setCountry(location.country);
     setCity(location.display_name);

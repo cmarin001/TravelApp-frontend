@@ -25,6 +25,8 @@ import {
   IonText,
   IonInput,
   IonIcon,
+  IonContent,
+  IonPage,
 } from "@ionic/react";
 import {
   lockOpenOutline,
@@ -139,127 +141,131 @@ function LogIn(props: LogInProps) {
   }
 
   return (
-    <StyledCustomCardContent>
-      <StyledContainerTitle>
-        <StyledIonTextLarge color="medium">
-          <h1>WELCOME</h1>
-        </StyledIonTextLarge>
-        <StyledIonTextSmall color="medium">
-          <h1>Log In to your account</h1>
-        </StyledIonTextSmall>
-      </StyledContainerTitle>
-      <form onSubmit={handleSubmit}>
-        <IonGrid>
-          <IonRow>
-            <IonCol>
-              <StyledItem lines="none">
-                <StyledIcon icon={mailOutline} />
-                <IonInput
-                  placeholder="Email"
-                  value={email}
-                  onIonChange={(e) => {
-                    setEmail(e.detail.value as string);
-                    if (emailError) setEmailError(null);
-                  }}
-                />
-              </StyledItem>
-              {emailError && (
-                <IonText color="danger">
-                  <p>{emailError}</p>
-                </IonText>
-              )}
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <StyledItem lines="none">
-                <StyledIcon icon={lockOpenOutline} />
-                <IonInput
-                  placeholder="Password"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onIonChange={(e) => {
-                    setPassword(e.detail.value as string);
-                    if (passwordError) setPasswordError(null);
-                  }}
-                />
-                <IonIcon
-                  icon={showPassword ? eyeOffOutline : eyeOutline}
-                  onClick={toggleShowPassword}
-                  style={{ cursor: "pointer" }}
-                />
-              </StyledItem>
-              {passwordError && (
-                <IonText color="danger">
-                  <p>{passwordError}</p>
-                </IonText>
-              )}
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonItem lines="none">
-                <IonCheckbox
-                  checked={rememberMe}
-                  onIonChange={(e) => setRememberMe(e.detail.checked)}
-                />
-                <IonLabel>Remember Me</IonLabel>
-              </IonItem>
-            </IonCol>
+    <IonPage>
+      <IonContent>
+        <StyledCustomCardContent>
+          <StyledContainerTitle>
+            <StyledIonTextLarge color="medium">
+              <h1>WELCOME</h1>
+            </StyledIonTextLarge>
+            <StyledIonTextSmall color="medium">
+              <h1>Log In to your account</h1>
+            </StyledIonTextSmall>
+          </StyledContainerTitle>
+          <form onSubmit={handleSubmit}>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <StyledItem lines="none">
+                    <StyledIcon icon={mailOutline} />
+                    <IonInput
+                      placeholder="Email"
+                      value={email}
+                      onIonChange={(e) => {
+                        setEmail(e.detail.value as string);
+                        if (emailError) setEmailError(null);
+                      }}
+                    />
+                  </StyledItem>
+                  {emailError && (
+                    <IonText color="danger">
+                      <p>{emailError}</p>
+                    </IonText>
+                  )}
+                </IonCol>
+              </IonRow>
+              <IonRow>
+                <IonCol>
+                  <StyledItem lines="none">
+                    <StyledIcon icon={lockOpenOutline} />
+                    <IonInput
+                      placeholder="Password"
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onIonChange={(e) => {
+                        setPassword(e.detail.value as string);
+                        if (passwordError) setPasswordError(null);
+                      }}
+                    />
+                    <IonIcon
+                      icon={showPassword ? eyeOffOutline : eyeOutline}
+                      onClick={toggleShowPassword}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </StyledItem>
+                  {passwordError && (
+                    <IonText color="danger">
+                      <p>{passwordError}</p>
+                    </IonText>
+                  )}
+                </IonCol>
+              </IonRow>
+              <IonRow>
+                <IonCol>
+                  <IonItem lines="none">
+                    <IonCheckbox
+                      checked={rememberMe}
+                      onIonChange={(e) => setRememberMe(e.detail.checked)}
+                    />
+                    <IonLabel>Remember Me</IonLabel>
+                  </IonItem>
+                </IonCol>
+                <StyledCenteredCol>
+                  <StyledIonTextSmall color="medium">
+                    <h5>
+                      <Link to="/forgotPassword">Forgot Password? </Link>
+                    </h5>
+                  </StyledIonTextSmall>
+                </StyledCenteredCol>
+              </IonRow>
+            </IonGrid>
             <StyledCenteredCol>
-              <StyledIonTextSmall color="medium">
-                <h5>
-                  <Link to="/forgotPassword">Forgot Password? </Link>
-                </h5>
-              </StyledIonTextSmall>
+              <StyledCustomButton type="submit">Log In</StyledCustomButton>
             </StyledCenteredCol>
-          </IonRow>
-        </IonGrid>
-        <StyledCenteredCol>
-          <StyledCustomButton type="submit">Log In</StyledCustomButton>
-        </StyledCenteredCol>
-      </form>
-      <StyledDivider />
-      <IonGrid>
-        <StyledIonTextSmall color="medium">
-          <h5>Or Log in with</h5>
-        </StyledIonTextSmall>
-        <IonRow>
-          <IonCol>
-            <StyledIndividualSocialContainer>
-              <StyledImg3
-                loading="lazy"
-                srcSet="/google-logo.svg"
-                onClick={() => handleSocialLogin(googleProvider)}
-              />
-            </StyledIndividualSocialContainer>
-          </IonCol>
-          <IonCol>
-            <StyledIndividualSocialContainer>
-              <StyledImg4
-                loading="lazy"
-                srcSet="/facebook-logo.svg"
-                onClick={() => handleSocialLogin(facebookProvider)}
-              />
-            </StyledIndividualSocialContainer>
-          </IonCol>
-          <IonCol>
-            <StyledIndividualSocialContainer>
-              <StyledImg5
-                loading="lazy"
-                srcSet="/twitterx-logo.svg"
-                onClick={() => handleSocialLogin(twitterProvider)}
-              />
-            </StyledIndividualSocialContainer>
-          </IonCol>
-        </IonRow>
-        <StyledIonTextSmall color="medium">
-          <h5>
-            Don’t have an account? <Link to="/signup">Sign up</Link>
-          </h5>
-        </StyledIonTextSmall>
-      </IonGrid>
-    </StyledCustomCardContent>
+          </form>
+          <StyledDivider />
+          <IonGrid>
+            <StyledIonTextSmall color="medium">
+              <h5>Or Log in with</h5>
+            </StyledIonTextSmall>
+            <IonRow>
+              <IonCol>
+                <StyledIndividualSocialContainer>
+                  <StyledImg3
+                    loading="lazy"
+                    srcSet="/google-logo.svg"
+                    onClick={() => handleSocialLogin(googleProvider)}
+                  />
+                </StyledIndividualSocialContainer>
+              </IonCol>
+              <IonCol>
+                <StyledIndividualSocialContainer>
+                  <StyledImg4
+                    loading="lazy"
+                    srcSet="/facebook-logo.svg"
+                    onClick={() => handleSocialLogin(facebookProvider)}
+                  />
+                </StyledIndividualSocialContainer>
+              </IonCol>
+              <IonCol>
+                <StyledIndividualSocialContainer>
+                  <StyledImg5
+                    loading="lazy"
+                    srcSet="/twitterx-logo.svg"
+                    onClick={() => handleSocialLogin(twitterProvider)}
+                  />
+                </StyledIndividualSocialContainer>
+              </IonCol>
+            </IonRow>
+            <StyledIonTextSmall color="medium">
+              <h5>
+                Don’t have an account? <Link to="/signup">Sign up</Link>
+              </h5>
+            </StyledIonTextSmall>
+          </IonGrid>
+        </StyledCustomCardContent>
+      </IonContent>
+    </IonPage>
   );
 }
 
