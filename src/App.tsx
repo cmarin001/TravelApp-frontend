@@ -28,6 +28,7 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 /* Global styles */
 import "./theme/global.css";
+import { PlaceDetail } from "./pages/places/PlaceDetail";
 
 setupIonicReact();
 
@@ -65,6 +66,7 @@ const App: React.FC = () => {
               <Route path="/verify-email" component={VerifyEmail} exact />
               <Route path="/landing" render={() => <Main setUser={setUser} />} />
               <Route path="/explore/:locationName" component={ExploreLocation} exact />
+              <Route path="/placeDetail/:location" component={PlaceDetail} exact />
               <Route exact path="/">
                 {user ? <Redirect to="/landing" /> : <Redirect to="/initial" />}
               </Route>

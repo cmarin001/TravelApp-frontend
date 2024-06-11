@@ -1,7 +1,7 @@
 import { IonGrid } from "@ionic/react";
 import styled from "styled-components";
 
-const StyledLocationCard = styled.div<{ $backgroundurl: string }>`
+const StyledLocationCardLink = styled.div<{ $backgroundurl: string }>`
   width: 90%;
   border-radius: 16px;
   overflow: hidden;
@@ -68,13 +68,13 @@ const StyledGrid = styled(IonGrid)`
   position: relative;
 `;
 
-const StyledCardContainer = styled.div`
+const StyledCardLinkContainer = styled.div`
   width: 100%;
 `;
 
 export {
-  StyledCardContainer,
-  StyledLocationCard,
+  StyledCardLinkContainer,
+  StyledLocationCardLink,
   StyledGrid,
   StyledDetails,
   StyledRating,
