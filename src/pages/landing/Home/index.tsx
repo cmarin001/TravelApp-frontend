@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   IonContent,
   IonGrid,
@@ -7,24 +7,19 @@ import {
   IonPage,
   IonItem,
   IonLabel,
-  IonCardContent,
 } from "@ionic/react";
-import { User } from "../../../components/User";
 import { searchOutline } from "ionicons/icons";
+import { User } from "../../../components/User";
 import { HomeProps } from "../../../types/types";
-
-import { Link } from "react-router-dom";
 import {
   StyledIcon,
   StyledInput,
   StyledItem,
-  StyledCenteredCol,
   StyledIonTextSmall,
 } from "./styles";
-import { LocationList } from "../../places/LocationList";
 import { RecommendedLocations } from "../../places/RecommendedLocations";
 
-function Home(props: HomeProps) {
+const Home: React.FC<HomeProps> = (props) => {
   const { user } = props;
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -56,27 +51,6 @@ function Home(props: HomeProps) {
               </StyledItem>
             </IonCol>
           </IonRow>
-          {/* <IonGrid>
-          <IonRow>
-            <IonCol>
-              <IonItem lines="none">
-                <IonLabel>Popular</IonLabel>
-              </IonItem>
-            </IonCol>
-            <StyledCenteredCol>
-              <StyledIonTextSmall color="medium">
-                <h5>
-                  <Link to="/forgotPassword">See all</Link>
-                </h5>
-              </StyledIonTextSmall>
-            </StyledCenteredCol>
-          </IonRow>
-          <IonRow style={{ height: "31vh" }}>
-            <IonCol size="12">
-              <LocationList />
-            </IonCol>
-          </IonRow>
-        </IonGrid> */}
           <IonRow>
             <IonCol>
               <IonItem lines="none">
@@ -93,6 +67,6 @@ function Home(props: HomeProps) {
       </IonContent>
     </IonPage>
   );
-}
+};
 
 export { Home };
