@@ -54,7 +54,7 @@ function Home(props: HomeProps) {
             </StyledItem>
           </IonCol>
         </IonRow>
-        <IonGrid>
+        {/* <IonGrid>
           <IonRow>
             <IonCol>
               <IonItem lines="none">
@@ -74,7 +74,7 @@ function Home(props: HomeProps) {
               <LocationList />
             </IonCol>
           </IonRow>
-        </IonGrid>
+        </IonGrid> */}
         <IonRow>
           <IonCol>
             <IonItem lines="none">
@@ -82,7 +82,7 @@ function Home(props: HomeProps) {
             </IonItem>
           </IonCol>
         </IonRow>
-        <IonRow style={{ height: "30vh" }}>
+        <IonRow style={{ height: "46vh" }}>
           <IonCol size="12">
             <RecommendedLocations  />
           </IonCol>

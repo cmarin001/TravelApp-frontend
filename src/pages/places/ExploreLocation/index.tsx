@@ -154,7 +154,7 @@ function ExploreLocation(props: HomeProps) {
         >
           <SwiperSlide>
             <IonGrid>
-              <IonRow>
+              {/* <IonRow>
                 <IonCol>
                   <IonItem lines="none">
                     <IonLabel>Popular</IonLabel>
@@ -167,24 +167,24 @@ function ExploreLocation(props: HomeProps) {
                     </h5>
                   </StyledIonTextSmall>
                 </StyledCenteredCol>
-              </IonRow>
-              <IonRow style={{ height: "30vh" }}>
+              </IonRow> */}
+              <IonRow style={{ height: "54vh" }}>
                 <IonCol size="12">
-                  <LocationList initialCountry={location.country} initialCity={location.display_name} />
+                   <RecommendedLocations initialCountry={location.country} initialCity={location.display_name} />
                 </IonCol>
               </IonRow>
             </IonGrid>
           </SwiperSlide>
           <SwiperSlide>
             <IonGrid>
-              <IonRow>
+              {/* <IonRow>
                 <IonCol>
                   <IonItem lines="none">
                     <IonLabel>Recommended</IonLabel>
                   </IonItem>
                 </IonCol>
-              </IonRow>
-              <IonRow style={{ height: "30vh" }}>
+              </IonRow> */}
+              <IonRow style={{ height: "54vh" }}>
                 <IonCol size="12">
                   <RecommendedLocations initialCountry={location.country} initialCity={location.display_name} />
                 </IonCol>
