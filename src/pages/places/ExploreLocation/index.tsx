@@ -31,6 +31,7 @@ import { LocationDisplay } from "../../../components/LocationDisplay";
 import { fetchCountries, fetchCities } from "../../../services/locationService";
 import { useLocation } from "../../../context/locationProvider";
 import { HomeProps } from "../../../types/types";
+import { useRemoveIonPageInvisible } from "../../../hooks/useRemoveIonPageInvisible";
 
 interface LocationState {
   location: {
@@ -94,6 +95,8 @@ const ExploreLocation: React.FC<HomeProps> = (props) => {
     }
   };
 
+  useRemoveIonPageInvisible(); 
+  
   if (!location) {
     return (
       <IonPage>

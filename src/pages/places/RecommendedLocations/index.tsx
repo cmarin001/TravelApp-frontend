@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { IonSpinner, IonText, IonPage, IonGrid, IonRow, IonCol, IonContent } from "@ionic/react";
 import { fetchCountries, fetchCities, fetchPlaces } from "../../../services/locationService";
 import { Card } from "../../../components/Card";
+import { useRemoveIonPageInvisible } from "../../../hooks/useRemoveIonPageInvisible";
 
 interface RecommendedLocationsProps {
   initialCountry?: string;
@@ -56,6 +57,7 @@ const RecommendedLocations: React.FC<RecommendedLocationsProps> = ({ initialCoun
     }
   }, [countries]);
 
+  useRemoveIonPageInvisible(); 
   return (
     <IonPage>
       <IonContent>

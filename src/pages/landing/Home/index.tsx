@@ -18,6 +18,7 @@ import {
   StyledIonTextSmall,
 } from "./styles";
 import { RecommendedLocations } from "../../places/RecommendedLocations";
+import { useRemoveIonPageInvisible } from "../../../hooks/useRemoveIonPageInvisible";
 
 const Home: React.FC<HomeProps> = (props) => {
   const { user } = props;
@@ -28,6 +29,8 @@ const Home: React.FC<HomeProps> = (props) => {
     setSearchQuery(value);
   };
 
+  useRemoveIonPageInvisible(); 
+  
   return (
     <IonPage>
       <IonContent>
