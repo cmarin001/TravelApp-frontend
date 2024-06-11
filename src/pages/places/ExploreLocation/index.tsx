@@ -32,6 +32,8 @@ import { fetchCountries, fetchCities } from "../../../services/locationService";
 import { useLocation } from "../../../context/locationProvider";
 import { HomeProps } from "../../../types/types";
 import { useRemoveIonPageInvisible } from "../../../hooks/useRemoveIonPageInvisible";
+import { CitiesByCountry } from "../CitiesByCountry";
+import { PlacesByCountry } from "../PlacesByCountry";
 
 interface LocationState {
   location: {
@@ -43,8 +45,8 @@ interface LocationState {
   } | null;
 }
 
-const ExploreLocation: React.FC<HomeProps> = (props) => {
-  const { user } = props;
+const ExploreLocation: React.FC<HomeProps> = () => {
+
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [activeTab, setActiveTab] = useState<string>("location");
   const history = useHistory();
@@ -52,7 +54,6 @@ const ExploreLocation: React.FC<HomeProps> = (props) => {
   const routerLocation = useRouterLocation<LocationState>();
   const { location } = routerLocation.state || { location: null };
 
-  // State variables for countries and cities
   const [countries, setCountries] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
 
@@ -173,7 +174,7 @@ const ExploreLocation: React.FC<HomeProps> = (props) => {
             <IonGrid>
               <IonRow style={{ height: "54vh" }}>
                 <IonCol size="12">
-                  <RecommendedLocations initialCountry={location.country} initialCity={location.display_name} />
+                   <PlacesByCountry  country={location.country} />
                 </IonCol>
               </IonRow>
             </IonGrid>

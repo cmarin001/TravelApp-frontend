@@ -42,4 +42,20 @@ const fetchPlaces = async (country: string, city: string) => {
   }
 };
 
-export { fetchCountries, fetchCities, fetchPlaces };
+const fetchCountryPlaces = async (country: string): Promise<{ [city: string]: { place_id: string, display_name: string, image_url: string }[] }> => {
+  try {
+    const response = await fetch(`${API_URL}/country-places?country=${country}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch places for country: ${country}.`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching places for country: ${country}.`, error);
+    throw error;
+  }
+};
+
+
+
+export { fetchCountries, fetchCities, fetchPlaces, fetchCountryPlaces };
