@@ -1,8 +1,6 @@
-import Slider from "@ant-design/react-slick";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
-import styled from 'styled-components';
 import { Card } from '../Card';
 
 interface UserProps {
@@ -12,42 +10,27 @@ interface UserProps {
 const slideOpts = {
   initialSlide: 0,
   speed: 400,
-  slidesToShow: 1.5,
-  centerMode: true,
-  centerPadding: '16px',
+  slidesPerView: 1.5,
+  centeredSlides: true,
+  spaceBetween: 16,
 };
-
-const StyledSlider = styled(Slider)`
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledSlide = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledCardContainer = styled.div`
-  width: -webkit-fill-available;
-  width: -moz-available;
-`;
 
 function Carousel(props: UserProps) {
   const { locations } = props;
 
   return (
-    <StyledSlider {...slideOpts}>
+    <Swiper {...slideOpts}>
       {locations.map((location) => (
-        <StyledSlide key={location.place_id}>
-          <StyledCardContainer>
-            <Card location={location} />
-          </StyledCardContainer>
-        </StyledSlide>
+        <SwiperSlide key={location.place_id} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
+         
+            <Card 
+              location={location}
+              navigatePath="/explore"
+            />
+
+        </SwiperSlide>
       ))}
-    </StyledSlider>
+    </Swiper>
   );
 }
 
