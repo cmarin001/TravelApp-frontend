@@ -4,6 +4,7 @@ import { Card } from "../../../components/Card";
 import { useRemoveIonPageInvisible } from "../../../hooks/useRemoveIonPageInvisible";
 import { fetchCountryPlaces } from "../../../services/locationService";
 import { LazyImage } from "../../../components/LazyImage";
+import { CardLink } from "../../../components/CardLink";
 
 
 interface PlacesByCountryProps {
@@ -60,7 +61,7 @@ const PlacesByCountry: React.FC<PlacesByCountryProps> = ({ country }) => {
           <IonRow>
             {places.map((place, index) => (
               <IonCol size="6" key={index}>
-                <Card
+                <CardLink
                   location={{
                     place_id: place.place_id,
                     display_name: place.display_name,

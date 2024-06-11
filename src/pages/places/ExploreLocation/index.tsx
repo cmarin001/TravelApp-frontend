@@ -183,7 +183,7 @@ const ExploreLocation: React.FC<HomeProps> = () => {
             <IonGrid>
               <IonRow style={{ height: "54vh" }}>
                 <IonCol size="12">
-                  <RecommendedLocations initialCountry={location.country} initialCity={location.display_name} />
+                   <PlacesByCountry  country={location.country} />
                 </IonCol>
               </IonRow>
             </IonGrid>
