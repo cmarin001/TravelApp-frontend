@@ -36,7 +36,7 @@ function Carousel(props: UserProps) {
             height: "100%",
           }}
         >
-          <Card location={location} navigatePath="/explore" />
+          {/* <Card location={location} navigatePath="/explore" /> */}
         </SwiperSlide>
       ))}
     </Swiper>

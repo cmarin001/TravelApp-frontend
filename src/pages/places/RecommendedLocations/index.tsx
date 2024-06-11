@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { IonSpinner, IonText, IonPage, IonGrid, IonRow, IonCol, IonContent } from "@ionic/react";
 import { fetchCountries, fetchCities, fetchPlaces } from "../../../services/locationService";
 import { Card } from "../../../components/Card";
@@ -8,8 +8,7 @@ interface RecommendedLocationsProps {
   initialCity?: string;
 }
 
-function RecommendedLocations(props: RecommendedLocationsProps) {
-  const { initialCountry = "Germany", initialCity = "Berlin" } = props;
+const RecommendedLocations: React.FC<RecommendedLocationsProps> = ({ initialCountry = "Germany", initialCity = "Berlin" }) => {
   const [countries, setCountries] = useState<string[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<string>(initialCountry);
   const [cities, setCities] = useState<{ [country: string]: string }>({});
@@ -59,29 +58,32 @@ function RecommendedLocations(props: RecommendedLocationsProps) {
 
   return (
     <IonPage>
-      {loading ? (
-        <IonSpinner name="crescent" />
-      ) : error ? (
-        <IonText color="danger">{error}</IonText>
-      ) : (
-        <IonGrid>
-          <IonRow>
-            {Object.keys(cities).map((country) => (
-              <IonCol size="6" key={country}>
-                <Card
-                  location={{
-                    place_id: country,
-                    display_name: cities[country],
-                    image_url: cityImages[country],
-                  }}
-                />
-              </IonCol>
-            ))}
-          </IonRow>
-        </IonGrid>
-      )}
+      <IonContent>
+        {loading ? (
+          <IonSpinner name="crescent" />
+        ) : error ? (
+          <IonText color="danger">{error}</IonText>
+        ) : (
+          <IonGrid>
+            <IonRow>
+              {Object.keys(cities).map((country) => (
+                <IonCol size="6" key={country}>
+                  <Card
+                    location={{
+                      place_id: country,
+                      display_name: cities[country],
+                      image_url: cityImages[country],
+                      country: country,
+                    }}
+                  />
+                </IonCol>
+              ))}
+            </IonRow>
+          </IonGrid>
+        )}
+      </IonContent>
     </IonPage>
   );
-}
+};
 
 export { RecommendedLocations };
