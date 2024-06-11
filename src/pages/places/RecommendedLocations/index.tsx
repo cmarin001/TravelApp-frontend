@@ -37,10 +37,10 @@ const RecommendedLocations: React.FC<RecommendedLocationsProps> = ({ initialCoun
         for (const country of countries) {
           const cityData = await fetchCities(country);
           if (cityData.length > 0) {
-            citiesData[country] = cityData[0]; // Assuming you want the first city
+            citiesData[country] = cityData[0];
             const placesData = await fetchPlaces(country, cityData[0]);
             if (placesData.length > 0) {
-              cityImagesData[country] = placesData[0].image_url; // Get the first image from the first place
+              cityImagesData[country] = placesData[0].image_url;
             }
           }
         }
@@ -73,7 +73,7 @@ const RecommendedLocations: React.FC<RecommendedLocationsProps> = ({ initialCoun
                   <Card
                     location={{
                       place_id: country,
-                      display_name: cities[country],
+                      display_name: country,
                       image_url: cityImages[country],
                       country: country,
                     }}

@@ -47,7 +47,7 @@ const Card: React.FC<CardProps> = ({ location }) => {
   };
 
   return (
-    <IonCard onClick={handleClick}>
+    <IonCard onClick={handleClick} >
       <StyledCardContainer>
         <StyledLocationCard $backgroundurl={`${API_URL}${location.image_url}`}>
           <StyledGrid>
